@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const axiosClient = axios.create({
-  baseURL: "http://localhost:5001/api/",
+  baseURL: "VITE_BASE_URL",
   headers: {
     "Content-Type": "application/json",
   },
@@ -13,8 +13,7 @@ const createNewResume = (data) => axiosClient.post("/resumes", data);
 export const getUserResumes = (userEmail) =>
   axiosClient.get(`/resumes?userEmail=${userEmail}`);
 
-export const getResumeById = (id) =>
-  axiosClient.get(`/resumes/${id}`);
+export const getResumeById = (id) => axiosClient.get(`/resumes/${id}`);
 
 export const deleteResume = (id) => axiosClient.delete(`/resumes/${id}`);
 
