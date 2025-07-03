@@ -111,7 +111,8 @@ export default function Home() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="relative"
         >
-          <div className="relative w-[20rem]">
+          {/* Desktop: Main Complex Animation */}
+          <div className="relative w-[20rem] hidden md:block">
             {/* Main animated container */}
             <motion.div
               animate={{
@@ -331,6 +332,23 @@ export default function Home() {
               }}
               className="absolute -bottom-16 -left-16 w-48 h-48 bg-gradient-to-br from-[#6366F1] to-[#7F56D9] rounded-full blur-3xl"
             />
+          </div>
+
+          {/* Mobile: Simple 3D Animation (from How It Works section) */}
+          <div className="relative w-full flex justify-center md:hidden">
+            <motion.div
+              animate={{ rotateY: [0, 360] }}
+              transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
+              className="w-32 h-32 bg-gradient-to-br from-violet-200/60 to-indigo-200/40 rounded-2xl shadow-2xl backdrop-blur-md border border-violet-200 flex items-center justify-center"
+              style={{ perspective: 800, boxShadow: '0 8px 32px 0 rgba(127,86,217,0.12)' }}
+            >
+              <motion.div
+                animate={{ rotateX: [0, 360] }}
+                transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
+                className="w-24 h-24 bg-white/30 rounded-xl shadow-inner border border-violet-100"
+                style={{ boxShadow: '0 4px 16px 0 rgba(127,86,217,0.10)' }}
+              />
+            </motion.div>
           </div>
         </motion.div>
       </section>
